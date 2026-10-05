@@ -1,9 +1,13 @@
 import mujoco
 import mujoco.viewer
 import time
+from pathlib import Path
+
+# 仓库根目录（本文件在 scripts/ 下，所以往上一层）
+ROOT = Path(__file__).resolve().parent.parent
 
 # 1. 加载模型
-model = mujoco.MjModel.from_xml_path('hello.xml')
+model = mujoco.MjModel.from_xml_path(str(ROOT / "models" / "hello.xml"))
 # 2. 创建数据容器（存储仿真状态）
 data = mujoco.MjData(model)
 
